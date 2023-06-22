@@ -1,0 +1,177 @@
+USE [master]
+GO
+/****** Object:  Database [Conecta]    Script Date: 06/22/2023 16:03:39 ******/
+CREATE DATABASE [Conecta] ON  PRIMARY 
+( NAME = N'Conecta', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\Conecta.mdf' , SIZE = 2304KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'Conecta_log', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\Conecta_log.LDF' , SIZE = 576KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [Conecta] SET COMPATIBILITY_LEVEL = 100
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Conecta].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Conecta] SET ANSI_NULL_DEFAULT OFF
+GO
+ALTER DATABASE [Conecta] SET ANSI_NULLS OFF
+GO
+ALTER DATABASE [Conecta] SET ANSI_PADDING OFF
+GO
+ALTER DATABASE [Conecta] SET ANSI_WARNINGS OFF
+GO
+ALTER DATABASE [Conecta] SET ARITHABORT OFF
+GO
+ALTER DATABASE [Conecta] SET AUTO_CLOSE ON
+GO
+ALTER DATABASE [Conecta] SET AUTO_CREATE_STATISTICS ON
+GO
+ALTER DATABASE [Conecta] SET AUTO_SHRINK OFF
+GO
+ALTER DATABASE [Conecta] SET AUTO_UPDATE_STATISTICS ON
+GO
+ALTER DATABASE [Conecta] SET CURSOR_CLOSE_ON_COMMIT OFF
+GO
+ALTER DATABASE [Conecta] SET CURSOR_DEFAULT  GLOBAL
+GO
+ALTER DATABASE [Conecta] SET CONCAT_NULL_YIELDS_NULL OFF
+GO
+ALTER DATABASE [Conecta] SET NUMERIC_ROUNDABORT OFF
+GO
+ALTER DATABASE [Conecta] SET QUOTED_IDENTIFIER OFF
+GO
+ALTER DATABASE [Conecta] SET RECURSIVE_TRIGGERS OFF
+GO
+ALTER DATABASE [Conecta] SET  ENABLE_BROKER
+GO
+ALTER DATABASE [Conecta] SET AUTO_UPDATE_STATISTICS_ASYNC OFF
+GO
+ALTER DATABASE [Conecta] SET DATE_CORRELATION_OPTIMIZATION OFF
+GO
+ALTER DATABASE [Conecta] SET TRUSTWORTHY OFF
+GO
+ALTER DATABASE [Conecta] SET ALLOW_SNAPSHOT_ISOLATION OFF
+GO
+ALTER DATABASE [Conecta] SET PARAMETERIZATION SIMPLE
+GO
+ALTER DATABASE [Conecta] SET READ_COMMITTED_SNAPSHOT OFF
+GO
+ALTER DATABASE [Conecta] SET HONOR_BROKER_PRIORITY OFF
+GO
+ALTER DATABASE [Conecta] SET  READ_WRITE
+GO
+ALTER DATABASE [Conecta] SET RECOVERY SIMPLE
+GO
+ALTER DATABASE [Conecta] SET  MULTI_USER
+GO
+ALTER DATABASE [Conecta] SET PAGE_VERIFY CHECKSUM
+GO
+ALTER DATABASE [Conecta] SET DB_CHAINING OFF
+GO
+USE [Conecta]
+GO
+/****** Object:  Table [dbo].[Vehiculo]    Script Date: 06/22/2023 16:03:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Vehiculo](
+	[Id_Vehiculo] [int] IDENTITY(1,1) NOT NULL,
+	[Placa] [varchar](20) NOT NULL,
+	[Tipo_de_vehiculo] [varchar](20) NOT NULL,
+	[Marca_de_vehiculo] [varchar](20) NOT NULL,
+	[Cilindraje] [varchar](20) NOT NULL,
+	[Servicio] [varchar](20) NOT NULL,
+	[Modelo] [int] NOT NULL,
+	[Valor_Asegurado] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id_Vehiculo] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Usuario]    Script Date: 06/22/2023 16:03:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Usuario](
+	[Id_Usuario] [int] IDENTITY(1,1) NOT NULL,
+	[Cedula] [int] NOT NULL,
+	[Tipo_de_documento] [varchar](20) NOT NULL,
+	[Nombre] [varchar](20) NOT NULL,
+	[Apellido] [varchar](20) NOT NULL,
+	[tipo_usuario] [varchar](30) NOT NULL,
+	[Contraseña] [varchar](20) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id_Usuario] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[Usuario] ON
+INSERT [dbo].[Usuario] ([Id_Usuario], [Cedula], [Tipo_de_documento], [Nombre], [Apellido], [tipo_usuario], [Contraseña]) VALUES (1, 1018440707, N'C.C', N'Daniel ', N'Alfonso ', N'Nivel1', N'ENERO2023')
+INSERT [dbo].[Usuario] ([Id_Usuario], [Cedula], [Tipo_de_documento], [Nombre], [Apellido], [tipo_usuario], [Contraseña]) VALUES (2, 1018440909, N'C.C', N'Juan ', N'Valdez', N'Nivel2', N'ENERO2023')
+INSERT [dbo].[Usuario] ([Id_Usuario], [Cedula], [Tipo_de_documento], [Nombre], [Apellido], [tipo_usuario], [Contraseña]) VALUES (3, 110349, N'C.C', N'Jose Nicolas ', N'Gonzalez', N'Nivel2', N'ENERO2023')
+INSERT [dbo].[Usuario] ([Id_Usuario], [Cedula], [Tipo_de_documento], [Nombre], [Apellido], [tipo_usuario], [Contraseña]) VALUES (4, 111503, N'C.C', N'David Santiago ', N'Cortes', N'Nivel2', N'ENERO2023')
+SET IDENTITY_INSERT [dbo].[Usuario] OFF
+/****** Object:  Table [dbo].[Poliza]    Script Date: 06/22/2023 16:03:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Poliza](
+	[Id_Poliza] [int] IDENTITY(1,1) NOT NULL,
+	[Placa] [varchar](20) NOT NULL,
+	[Servicio] [varchar](20) NOT NULL,
+	[Valor_Asegurado] [int] NOT NULL,
+	[Cedula] [int] NOT NULL,
+	[Tipo_de_documento] [varchar](20) NOT NULL,
+	[Nombre] [varchar](20) NOT NULL,
+	[Apellido] [varchar](20) NOT NULL,
+	[Prima_Antes_Impuestos] [int] NULL,
+	[Prima_Total] [int] NULL,
+	[Impuestos] [int] NULL,
+	[Estado_Poliza] [varchar](20) NOT NULL,
+	[Razon_Estado_Poliza] [varchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id_Poliza] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Beneficiario]    Script Date: 06/22/2023 16:03:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Beneficiario](
+	[Id_Usuario] [int] IDENTITY(1,1) NOT NULL,
+	[Cedula] [int] NOT NULL,
+	[Tipo_de_documento] [varchar](20) NOT NULL,
+	[Nombre] [varchar](20) NOT NULL,
+	[Apellido] [varchar](20) NOT NULL,
+	[Correo] [varchar](20) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id_Usuario] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
