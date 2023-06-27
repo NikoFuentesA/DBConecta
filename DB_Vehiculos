@@ -3,40 +3,59 @@ use vehiculos;
 
 
 create table documento (
-	cedula varchar(50) not null,
-    nit varchar (50) not null,
-    pasaporte varchar (50) not null, 
-    fecha_vig date not null
+	id_documento int primary key,
+    descripcion Varchar (50) not null
 );
 Create Table tipo_vechiculo  (
-	Motocicleta varchar(50) not null,
-	Automovil varchar(50) not null,
-	Campero varchar(50) not null,
-	Camioneta varchar(50) not null,
-	Cuatrimoto varchar(50) not null,
-	Moto_Carro varchar(50) not null, 
-	Carro_Electrico varchar(50) not null
+id_tipo_de_vehiculo int primary key not null,
+tipo varchar(50) not null,
+tasa_tipo_de_vehiculo double not null
 );
 
 create table uso_vehiculo(
- vehic_particulares varchar(50) not null,
- vehic_servPublico varchar(50) not null,
- vehic_oficialesPiplomaticos varchar(50) not null
+ id_uso_vehiculo int primary key,
+ uso varchar (50) not null,
+ Tasa_Uso_vehiculo int 
 );
 
-create table marca_cilindraje (
-marca varchar(50) not null,
-cilindraje int primary key  not null ,
-modelo varchar(50) not null
+create table cilindraje (
+id_cilindraje int primary key,
+cilindraje int primary key,
+Tasa_Cilindraje int
+);
+
+create table marca (
+id_marca int primary key,
+marca varchar (50) not null
 );
 
 create table localizacion (
+id int primary key,
 Lugar varchar(50) not null
 );
 
-create table tasa(
-Tasa_tipo_devehiculo int primary key  not null ,
-Tasa_Uso_vehiculo int not null  ,
-Tasa_Modelo int  not null ,
-Tasa_Cilindraje int not null 
+ create table modelo (
+ id_modelo int primary key,
+ modelo varchar(50) not null,
+Tasa_Modelo int 
+ );
+create table comision (
+id_comision int primary key,
+comision double not null
 );
+
+create table poliza(
+	id_poliza int  primary key AUTO_INCREMENT ,
+	placa varchar(20) NOT NULL,
+	Servicio varchar(20) NOT NULL,
+	Valor_Asegurado int NOT NULL,
+	Cedula int NOT NULL,
+	Tipo_de_documento varchar(20) NOT NULL,
+	Nombre varchar(20) NOT NULL,
+	Apellido varchar(20) NOT NULL,
+	Prima_Antes_Impuestos int NULL,
+	Prima_Total int NULL,
+	Impuestos int NULL,
+	Estado_Poliza varchar (20) NOT NULL,
+	Razon_Estado_Poliza varchar (50) NOT NULL);
+    
