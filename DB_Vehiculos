@@ -1,47 +1,59 @@
 create database vehiculos;
 use vehiculos;
 
+CREATE TABLE Usuario(
+	Id_Usuario int AUTO_INCREMENT NOT NULL,
+	Cedula int NOT NULL,
+	Tipo_de_documento varchar(20) NOT NULL,
+	Nombre varchar(20) NOT NULL,
+	tipo_usuario varchar (30) NOT NULL,
+	Contraseña varchar(20) NOT NULL
+);
+
 
 create table documento (
 	id_documento int primary key,
-    descripcion Varchar (50) not null
-);
-Create Table tipo_vechiculo  (
-id_tipo_de_vehiculo int primary key not null,
-tipo varchar(50) not null,
-tasa_tipo_de_vehiculo double not null
+   	 descripcion Varchar (50) not null
 );
 
+
+Create Table tipo_vechiculo  (
+	id_tipo_de_vehiculo int primary key not null,
+	tipo varchar(50) not null,
+	tasa_tipo_de_vehiculo double not null
+);
+
+
 create table uso_vehiculo(
- id_uso_vehiculo int primary key,
- uso varchar (50) not null,
- Tasa_Uso_vehiculo int 
+	 id_uso_vehiculo int primary key,
+ 	uso varchar (50) not null,
+ 	Tasa_Uso_vehiculo int 
 );
 
 create table cilindraje (
-id_cilindraje int primary key,
-cilindraje int primary key,
-Tasa_Cilindraje int
+	id_cilindraje int primary key,
+	cilindraje int primary key,
+	Tasa_Cilindraje int
 );
 
 create table marca (
-id_marca int primary key,
-marca varchar (50) not null
+	id_marca int primary key,
+	marca varchar (50) not null
 );
 
 create table localizacion (
-id int primary key,
-Lugar varchar(50) not null
+	id int primary key,
+	Lugar varchar(50) not null
 );
 
  create table modelo (
- id_modelo int primary key,
- modelo varchar(50) not null,
-Tasa_Modelo int 
+ 	id_modelo int primary key,
+ 	modelo varchar(50) not null,
+	Tasa_Modelo int 
  );
 create table comision (
-id_comision int primary key,
-comision double not null
+	id_comision int primary key,
+	comision double not null
 );
 
 create table poliza(
@@ -58,4 +70,13 @@ create table poliza(
 	Impuestos int NULL,
 	Estado_Poliza varchar (20) NOT NULL,
 	Razon_Estado_Poliza varchar (50) NOT NULL);
+    
+    
+    CREATE TABLE Beneficiario (
+	Id_Usuario int AUTO_INCREMENT NOT NULL,
+	Cedula int NOT NULL,
+	Tipo_de_documento varchar(20) NOT NULL,
+	Nombre varchar(20) NOT NULL,
+	Correo varchar(20) NULL
+);
     
