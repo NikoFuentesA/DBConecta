@@ -1,0 +1,42 @@
+create database vehiculos;
+use vehiculos;
+
+
+create table documento (
+	cedula varchar(50) not null,
+    nit varchar (50) not null,
+    pasaporte varchar (50) not null, 
+    fecha_vig date not null
+);
+Create Table tipo_vechiculo  (
+	Motocicleta varchar(50) not null,
+	Automovil varchar(50) not null,
+	Campero varchar(50) not null,
+	Camioneta varchar(50) not null,
+	Cuatrimoto varchar(50) not null,
+	Moto_Carro varchar(50) not null, 
+	Carro_Electrico varchar(50) not null
+);
+
+create table uso_vehiculo(
+ vehic_particulares varchar(50) not null,
+ vehic_servPublico varchar(50) not null,
+ vehic_oficialesPiplomaticos varchar(50) not null
+);
+
+create table marca_cilindraje (
+marca varchar(50) not null,
+cilindraje int primary key  not null ,
+modelo varchar(50) not null
+);
+
+create table localizacion (
+Lugar varchar(50) not null
+);
+
+create table tasa(
+Tasa_tipo_devehiculo int primary key  not null ,
+Tasa_Uso_vehiculo int not null  ,
+Tasa_Modelo int  not null ,
+Tasa_Cilindraje int not null 
+);
