@@ -80,3 +80,18 @@ create table poliza(
 	Correo varchar(20) NULL
 );
     
+
+create table usuarios_A(
+	usuario_a varchar (50) not null,
+	contraseña varchar (50) not null
+);
+
+
+/* usuario_a para los usuarios que puedan editar las tablas documento y todos los documentos llenables  como nombre docuemtno etc...
+el usuario_b es para que los usuarios esten deacuerdo o no en que se envien los datos a la base de datos */
+
+
+create table usuarios_B( 
+	usuario_b varchar (50) not null,
+	contraseña varchar (50) not null
+);
