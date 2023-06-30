@@ -10,67 +10,67 @@ tipo varchar (50)
 create table poliza (
 nombre varchar (50) not null,
 tipo_documento varchar (50) not null,
-N°_documento int not null,
+N_documento int not null,
 fecha_inicio date not null,
 fecha_fin date not null,
 tipo varchar (50) not null,
 marca varchar (50) not null,
-cilindraje double not null,
+cilindraje float not null,
 servicio varchar (50) not null,
 ciudad varchar (50) not null,
 placa varchar (50) not null,
 modelo varchar (50) not null,
-valor int not null,
+valor float not null,
 estado varchar (50) not null,
-id int not null
+id int primary key not null
 );
 
 create table tasa (
-id int not null,
-rcc double not null,
-rce double not null, 
-daños double not null,
-manejo double not null,
-tasa_t double not null,
-uso double not null,
+id int primary key not null,
+rcc float not null,
+rce float not null, 
+daños float not null,
+manejo float not null,
+tasa_t float not null,
+uso float not null,
 cilindraje int not null,
-modelo double not null,
-total double not null
+modelo float not null,
+total float not null
 );
 
 create table tasa_iva(
 id int not null ,
-rcc_iva double not null,
-rce_iva double not null,
-daños_iva double not null,
-manejo_iva double not null,
-tasa_t_iva  double not null,
-uso_iva double not null,
-cilindraje_iva double not null,
-modelo_iva double not null,
-total_iva double not null
+rcc_iva float not null,
+rce_iva float not null,
+daños_iva float not null,
+manejo_iva float not null,
+tasa_t_iva  float not null,
+uso_iva float not null,
+cilindraje_iva float not null,
+modelo_iva float not null,
+total_iva float not null
 );
 
 create table total_tasa(
 id int not null,
-rcc_total double not null,
-rce_total double not null,
-daños_total double not null,
-manejo_total double not null,
-tasa_t_total double not null,
-uso_total double not null,
-cilindraje_total double not null,
-modelo_total double not null,
-total_total double not null
+rcc_total float not null,
+rce_total float not null,
+daños_total float not null,
+manejo_total float not null,
+tasa_t_total float not null,
+uso_total float not null,
+cilindraje_total float not null,
+modelo_total float not null,
+total_total float not null
 );
 
 create table tasa_vehiculo(
-tasa_moto double not null,
-tasa_auto double not null,
-tasa_campero double not null, 
-tasa_camoineta double not null,
-tasa_cuatrimoto double not null,
-tasa_moto_electrica double not null
+tasa_moto float not null,
+tasa_auto float not null,
+tasa_campero float not null, 
+tasa_camoineta float not null,
+tasa_cuatrimoto float not null,
+tasa_moto_electrica float not null
 );
 
 create table tipo_vehiculo(
@@ -80,9 +80,9 @@ vehiculos_oficiales varchar (50) not null
 );
 
 create table cilindraje(
-cc80_199  double not null,
-cc200_600 double not null,
-cc601 double not null 
+cc80_199  float not null,
+cc200_600 float not null,
+cc601 float not null 
 );
 
 create table modelo(
@@ -93,8 +93,8 @@ año_2021_2030 date not null
 );
 
 create table rater(
-trcc double not null,
-trce double not null,
-tdaños double not null,
-tmanejo double not null
+trcc float not null,
+trce float not null,
+tdaños float not null,
+tmanejo float not null
 );
